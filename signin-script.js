@@ -36,6 +36,9 @@ function initSignInForm() {
         setTimeout(() => {
             if (username === validCredentials.username && password === validCredentials.password) {
                 showSuccessMessage('Login successful! Redirecting...');
+
+                // >>>>> ADD THIS CRITICAL LINE <<<<<
+    sessionStorage.setItem('isAuthenticated', 'true'); // <-- THIS IS THE FIX
                 
                 // Redirect to dashboard or main page after success
                 setTimeout(() => {
@@ -393,4 +396,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // Console welcome message
 console.log('🔐 Sign In page loaded successfully!');
 console.log('📧 Demo credentials: jamieshawld@gmail.com / AltCtrl22');
+
 console.log('💡 Use the "Auto-fill Demo" button for quick testing');
